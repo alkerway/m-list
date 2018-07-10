@@ -1,6 +1,8 @@
-(ns m-list.core)
+(ns m-list.core
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [m-list.generator :as generator]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defroutes app
+  (GET "/" [] (generator/getAudio))
+  (route/not-found "<h1>Page not found</h1>"))
