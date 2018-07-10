@@ -2,9 +2,11 @@
     (:require [rum.core :as rum]))
 
 (rum/defc wrapper []
-    (let [directory (clojure.java.io/file "./public")
-            files (file-seq directory)]
-    (println (take 10 files)))
+    (println)
+    (println)
+    (let [names (.list (clojure.java.io/file "./public"))]
+    (println (count names)))
+    ; (println files))
     [:h1 "suuu"])
 
 (defn getAudio []
