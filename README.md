@@ -1,14 +1,3 @@
 # m-list
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Server that generates an html list of files in ./public. Audio files have audio element, video files will have video element and all others will have a link to content.
