@@ -6,7 +6,7 @@
 
 (defroutes app-routes
   (GET "/m/" [] (generator/getAudio))
-  (route/not-found "<h1>Page not found</h1>"))
+  (route/not-found "not found"))
 
 (def app
 	(-> app-routes
