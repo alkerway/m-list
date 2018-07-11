@@ -4,7 +4,7 @@
 	[clojure.string :as cljstr]))
 
 (def audioFormats ["wav" "flac" "mp3" "aac"])
-(def videoFormats ["mkv" "m3u8" "mov" "mp4" "flv" "avi"])
+(def videoFormats ["mkv" "mov" "mp4" "flv" "avi"])
 
 (rum/defc wrapper []
     (let [names (.list (clojure.java.io/file "./public/m"))]
@@ -14,7 +14,8 @@
 	            (if (some #(= % extension) audioFormats)
 			[:audio {:style {:display "block"} :src eachFile :controls true}]
 		    (if (some #(= % extension) videoFormats)
-			[:video {:style {:display "block"} :src eachFile :controls true}]))]))))
+			[:video {:style {:display "block" :height "240px"} :src eachFile :controls true}]
+			[:a {:style {:display "block"} :href eachFile :target "_blank"} "link"]))]))))
 
 (defn getAudio []
     (rum/render-html (wrapper)))
