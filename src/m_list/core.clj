@@ -6,18 +6,20 @@
             [ring.middleware.params :refer [wrap-params]]
             [m-list.generator :as generator]))
 
-(defn upload-file [file]
-  (let [file-name (file :filename)
-        size (file :size)]
+(defn upload-file [file params]
+  (println)
+  (println)
+  (println params)
+  (let [file-name (:filename file)]
       (do
           (println file)
           (clojure.java.io/copy (:tempfile file) (clojure.java.io/file "./public" "m" file-name))
-          {:status 200 :headers {"Content-Type" "text/html"} :body (str file-name size)})))
+          {:status 200})))
 
 (defroutes app-routes
   (GET "/m/" [] (generator/getFiles))
   (POST "/upload" {params :params}
-    (let [file (get params "file")] (upload-file file)))
+    (upload-file (get params "file") params))
   (route/not-found "Not found"))
 
 (def app
