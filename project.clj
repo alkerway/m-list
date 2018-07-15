@@ -8,6 +8,7 @@
     [compojure "1.6.1"]
     [ring/ring-core "1.7.0-RC1"]
     [ring/ring-jetty-adapter "1.6.3"]
+    [ring/ring-defaults "0.3.2"]
     [rum "0.11.2" :exclusions [cljsjs/react cljsjs/react-dom sablono]]]
 
   :plugins [[lein-ring "0.9.7"]]
