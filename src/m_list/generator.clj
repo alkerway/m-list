@@ -18,7 +18,9 @@
 			[:a {:style {:display "block"} :href eachFile :target "_blank"} "link"]))]))))
 
 (rum/defc wrapper []
-	[:html {} [:body {} (files)]])
+	[:html {} 
+	[:body {} 
+	[:div {} [:h1 ""] (files)]]])
 
 (defn getAudio []
     (rum/render-html (wrapper)))
